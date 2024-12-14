@@ -1,6 +1,6 @@
 import random
 
-def generate_test_cases(num_tests, max_boxes, max_containers, output_dir):
+def generate_test_cases(num_tests, max_boxes, max_containers, output_dir, jump):
     """
     Generate test cases for the 2D bin packing problem.
 
@@ -13,8 +13,8 @@ def generate_test_cases(num_tests, max_boxes, max_containers, output_dir):
     Each test case will be saved to a separate file.
     """
     for test_index in range(0, num_tests):
-        num_boxes = max_boxes + test_index*1000
-        num_containers = max_containers + test_index*1000
+        num_boxes = max_boxes + test_index*jump
+        num_containers = max_containers + test_index*jump
 
         output_path = f"{output_dir}/test_case_{num_boxes}.txt"
         with open(output_path, "w") as file:
@@ -40,4 +40,5 @@ def generate_test_cases(num_tests, max_boxes, max_containers, output_dir):
 output_directory = "test_cases"
 import os
 os.makedirs(output_directory, exist_ok=True)
-generate_test_cases(num_tests= 10, max_boxes=1000, max_containers=1000, output_dir=output_directory)
+num_tests, max_boxes, max_containers, jump = map(int, input().split())
+generate_test_cases(num_tests, max_boxes, max_containers, output_dir=output_directory, jump=jump)
