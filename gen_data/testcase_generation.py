@@ -23,20 +23,20 @@ def generate_test_cases(num_tests, max_boxes, max_containers, output_dir, jump):
 
             # Generate boxes with random dimensions
             for _ in range(num_boxes):
-                width = random.randint(1, 10)  # Random width between 10 and 100
-                height = random.randint(1, 10)  # Random height between 10 and 100
+                width = random.randint(1, 10)  # Random width 
+                height = random.randint(1, 10)  # Random height 
                 file.write(f"{width} {height}\n")
 
             # Generate containers with random dimensions and costs
             for _ in range(num_containers):
-                width = random.randint(10, 30)  # Random width between 100 and 200
-                height = random.randint(10, 30)  # Random height between 100 and 200
-                cost = random.randint(5, 20)  # Random cost between 5 and 20
+                width = random.randint(10, 30)  # Random width 
+                height = random.randint(10, 30)  # Random height 
+                cost = random.randint(5, 20)  # Random cost 
                 file.write(f"{width} {height} {cost}\n")
 
         print(f"Test case {test_index} saved to {output_path}")
 
-# Example usage
+
 output_directory = "test_cases"
 import os
 os.makedirs(output_directory, exist_ok=True)
